@@ -17,12 +17,10 @@ public class AuthenticationService {
         UserService indentUser = new UserService();
         User user = indentUser.findByEmail(email);
 
-        if (user.getPassword() == null) {
+        if (user == null || user.getPassword() == null) {
             return false;
         }
-        if (user == null) {
-            return false;
-        }
+
         return user.getPassword().equals(password);
     }
 }
