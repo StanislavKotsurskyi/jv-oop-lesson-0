@@ -16,7 +16,7 @@ public class UserService {
      */
 
     public User findByEmail(String email) {
-        if (email == null && email.isBlank()) {
+        if (email == null || email.isBlank()) {
             return null;
         }
         for (User user : users) {
